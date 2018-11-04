@@ -31,6 +31,8 @@ namespace MoreMountains.CorgiEngine
         public bool AutomaticallyBindAnimator = true;
         /// whether or not this character getting hit should interrupt its attack (will only work if the weapon is marked as interruptable)
         public bool GettingHitInterruptsAttack = false;
+        //Animation
+        public bool RunAttack;
 
         public Animator CharacterAnimator { get; set; }
 
@@ -46,7 +48,7 @@ namespace MoreMountains.CorgiEngine
 		protected override void Initialization () 
 		{
 			base.Initialization();
-								
+            RunAttack = false;					
 			Setup ();
 		}
 
@@ -90,6 +92,7 @@ namespace MoreMountains.CorgiEngine
 
 			if ((_inputManager.ShootButton.State.CurrentState == MMInput.ButtonStates.ButtonDown) || (_inputManager.ShootAxis == MMInput.ButtonStates.ButtonDown))
             {
+                RunAttack = true;
 				ShootStart();
 			}
 
@@ -98,9 +101,11 @@ namespace MoreMountains.CorgiEngine
                 if (ContinuousPress && (CurrentWeapon.TriggerMode == Weapon.TriggerModes.Auto) && (_inputManager.ShootButton.State.CurrentState == MMInput.ButtonStates.ButtonPressed))
                 {
                     ShootStart();
+                    RunAttack = true;
                 }
                 if (ContinuousPress && (CurrentWeapon.TriggerMode == Weapon.TriggerModes.Auto) && (_inputManager.ShootAxis == MMInput.ButtonStates.ButtonPressed))
                 {
+                    RunAttack = true;
                     ShootStart();
                 }
             }			
@@ -113,6 +118,7 @@ namespace MoreMountains.CorgiEngine
             if ((_inputManager.ShootButton.State.CurrentState == MMInput.ButtonStates.ButtonUp) || (_inputManager.ShootAxis == MMInput.ButtonStates.ButtonUp))
             {
                 ShootStop();
+                RunAttack = false;
             }
 
             if (CurrentWeapon != null)
@@ -121,6 +127,7 @@ namespace MoreMountains.CorgiEngine
                 && ((_inputManager.ShootAxis == MMInput.ButtonStates.Off) && (_inputManager.ShootButton.State.CurrentState == MMInput.ButtonStates.Off)))
                 {
                     ShootStop();
+                    RunAttack = false;
                 }
             }            
         }
@@ -313,6 +320,7 @@ namespace MoreMountains.CorgiEngine
 			RegisterAnimatorParameter(CurrentWeapon.ReloadAnimationParameter, AnimatorControllerParameterType.Bool);
 			RegisterAnimatorParameter(CurrentWeapon.SingleUseAnimationParameter, AnimatorControllerParameterType.Bool);
 			RegisterAnimatorParameter(CurrentWeapon.UseAnimationParameter, AnimatorControllerParameterType.Bool);
+            RegisterAnimatorParameter("RunAttack", AnimatorControllerParameterType.Bool);
 		}
 
 		/// <summary>
@@ -336,6 +344,8 @@ namespace MoreMountains.CorgiEngine
 			MMAnimator.UpdateAnimatorBool(_animator,CurrentWeapon.ReloadStartAnimationParameter,(CurrentWeapon.WeaponState.CurrentState == Weapon.WeaponStates.WeaponReloadStart),_character._animatorParameters);
 			MMAnimator.UpdateAnimatorBool(_animator,CurrentWeapon.ReloadAnimationParameter,(CurrentWeapon.WeaponState.CurrentState == Weapon.WeaponStates.WeaponReload),_character._animatorParameters);
 			MMAnimator.UpdateAnimatorBool(_animator,CurrentWeapon.ReloadStopAnimationParameter,(CurrentWeapon.WeaponState.CurrentState == Weapon.WeaponStates.WeaponReloadStop),_character._animatorParameters);
+
+            MMAnimator.UpdateAnimatorBool(_animator, "RunAttack", (CurrentWeapon.WeaponState.CurrentState == Weapon.WeaponStates.WeaponUse), _character._animatorParameters);
 
 			if (_aimableWeapon != null)
 			{

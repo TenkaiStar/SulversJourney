@@ -57,7 +57,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1266704000824446}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -45.998, y: 3.53, z: 0}
+  m_LocalPosition: {x: -45.172573, y: 3.5454273, z: 0}
   m_LocalScale: {x: 2.866287, y: 2.669, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -95,7 +95,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.033170596, y: 0.013853446}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -106,7 +106,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.48, y: 0.48}
+  m_Size: {x: 0.20726267, y: 0.45229307}
   m_EdgeRadius: 0
 --- !u!95 &95422543446170612
 Animator:
@@ -328,17 +328,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a07c6668aa55403790d27b575279549, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AbilityStartSfx: {fileID: 0}
+  AbilityStartSfx: {fileID: 8300000, guid: 2d6f1b59f05ba40e3a702c2695cb86fd, type: 3}
   AbilityInProgressSfx: {fileID: 0}
   AbilityStopSfx: {fileID: 0}
   AbilityPermitted: 1
-  InitialWeapon: {fileID: 0}
+  InitialWeapon: {fileID: 114000010078180980, guid: e9b07f863bc1a89488f7c33fabfd5c78,
+    type: 2}
   WeaponAttachment: {fileID: 0}
   CanPickupWeapons: 1
   CurrentWeapon: {fileID: 0}
-  ContinuousPress: 0
+  ContinuousPress: 1
   AutomaticallyBindAnimator: 1
   GettingHitInterruptsAttack: 0
+  RunAttack: 0
 --- !u!114 &114397930903408340
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -352,8 +354,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentHealth: 0
   Invulnerable: 0
-  InitialHealth: 10
-  MaximumHealth: 10
+  InitialHealth: 100
+  MaximumHealth: 100
   DamageEffect: {fileID: 0}
   DamageSfx: {fileID: 0}
   FlickerSpriteOnHit: 1
@@ -597,8 +599,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1628607475
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 42023c432c8aa974a80d1ffd98404ece, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
