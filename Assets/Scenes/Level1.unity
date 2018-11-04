@@ -2472,7 +2472,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerPrefabs:
-  - {fileID: 114473069959786316, guid: 460a0ee26c86f4e5ab4b2678c9712069, type: 2}
+  - {fileID: 114815071290945494, guid: 70f932f1dc6efcd4e9e16c49b500dbce, type: 2}
   AutoAttributePlayerIDs: 1
   DebugSpawn: {fileID: 0}
   CheckpointAttributionAxis: 0
