@@ -497,7 +497,7 @@ MonoBehaviour:
   AbilityStartSfx: {fileID: 0}
   AbilityInProgressSfx: {fileID: 0}
   AbilityStopSfx: {fileID: 0}
-  AbilityPermitted: 1
+  AbilityPermitted: 0
   MovingPlatformsJumpCollisionOffDuration: 0.05
   ParticleEmitter: {fileID: 0}
   JetpackForce: 2.5

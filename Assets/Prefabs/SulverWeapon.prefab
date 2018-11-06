@@ -238,10 +238,10 @@ MonoBehaviour:
   Animators:
   - {fileID: 95422543446170612, guid: 70f932f1dc6efcd4e9e16c49b500dbce, type: 2}
   IdleAnimationParameter: 
-  StartAnimationParameter: 
+  StartAnimationParameter: RunAttack
   DelayBeforeUseAnimationParameter: 
   SingleUseAnimationParameter: 
-  UseAnimationParameter: Run Attack
+  UseAnimationParameter: 
   DelayBetweenUsesAnimationParameter: 
   StopAnimationParameter: 
   ReloadStartAnimationParameter: 
